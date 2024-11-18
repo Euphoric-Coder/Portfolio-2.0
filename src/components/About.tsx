@@ -18,7 +18,7 @@ const AboutHeader = () => {
         </h2>
         <p className="text-[18px] md:text-2xl lg:text-3xl text-white flex items-center gap-1">
           I&apos;m&nbsp;
-          <span className="text-[18px] md:text-2xl lg:text-3xl bg-gradient-to-r from-teal-400 to-green-500 text-transparent bg-clip-text font-semibold">
+          <span className="text-[18px] md:text-2xl lg:text-3xl bg-gradient-to-r from-purple-400 via-green-400 to-indigo-500 text-transparent bg-clip-text font-semibold">
             <Typewriter
               options={{
                 strings: [
@@ -33,7 +33,7 @@ const AboutHeader = () => {
             />
           </span>
         </p>
-        <p className="text-lg lg:text-xl text-textColor leading-relaxed text-justify">
+        <p className="text-lg lg:text-xl text-textColor leading-relaxed text-justify font-montserrat">
           I&apos;m a tech enthusiast, passionate about learning and exploring
           the latest technologies. Currently, I&apos;m pursuing my journey in{" "}
           <span className="text-primaryColor font-bold">web development</span>{" "}
@@ -52,7 +52,7 @@ const AboutHeader = () => {
           <span className="text-primaryColor font-semibold">React</span> for
           crafting interactive web applications.
         </p>
-        <p className="text-lg lg:text-xl text-textColor leading-relaxed">
+        <p className="text-lg lg:text-xl text-textColor leading-relaxed text-justify font-montserrat">
           Currently, I&apos;m honing my skills by building{" "}
           <span className="text-white font-semibold">
             a wide range of projects

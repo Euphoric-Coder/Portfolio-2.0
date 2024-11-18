@@ -1,4 +1,6 @@
 import About from "./components/About"
+import Footer from "./components/Footer"
+import FooterMobile from "./components/FooterMobile"
 import Header from "./components/Header"
 
 const App = () => {
@@ -6,6 +8,8 @@ const App = () => {
     <div className="bg-bgColor">
       <Header />
       <About />
+      <Footer />
+      <FooterMobile />
     </div>
   )
 }
