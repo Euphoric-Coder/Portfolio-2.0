@@ -1,103 +1,117 @@
-import { IconHexagonLetterSFilled } from "@tabler/icons-react";
-import { AiOutlineMenu, AiOutlineClose, AiOutlineHome } from "react-icons/ai";
-import {
-  RiProjectorLine,
-  RiCodeLine,
-  RiBriefcaseLine,
-  RiBookLine,
-} from "react-icons/ri";
-import React, { useState, useEffect } from "react";
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Menu, X, Github, Linkedin, Mail } from 'lucide-react';
 
-interface NavLink {
-  label: string;
-  href: string;
-  icon: React.ReactNode;
-}
-
-const navLinks: NavLink[] = [
-  { label: "About", href: "#about", icon: <AiOutlineHome /> },
-  { label: "Projects", href: "#projects", icon: <RiProjectorLine /> },
-  { label: "Skills", href: "#skills", icon: <RiCodeLine /> },
-  { label: "Experience", href: "#experience", icon: <RiBriefcaseLine /> },
-  { label: "Education", href: "#education", icon: <RiBookLine /> },
-];
-
-const Header: React.FC = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
+const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
+  const menuItems = [
+    { href: "#about", label: "About" },
+    { href: "#experience", label: "Experience" },
+    { href: "#education", label: "Education" },
+    { href: "#projects", label: "Projects" }
+  ];
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const socialLinks = [
+    { href: "https://github.com", icon: Github, label: "GitHub" },
+    { href: "https://linkedin.com", icon: Linkedin, label: "LinkedIn" },
+    { href: "mailto:your.email@example.com", icon: Mail, label: "Email" }
+  ];
 
   return (
-    <header
-      className={`fixed top-0 left-0 w-full z-50 h-20 flex items-center transition-all duration-300 border-b-2 border-purple-950 ${
-        isScrolled
-          ? "bg-gradient-to-r from-purple-900/80 via-black/70 to-purple-800/80 shadow-lg backdrop-blur-md"
-          : "bg-bgColor"
-      }`}
-    >
-      <div className="flex items-center justify-between mx-auto w-full px-5 md:px-10">
-        {/* Logo Section */}
-        <div className="flex-shrink-0">
-          <a
-            href="/"
-            className="flex items-center gap-3 hover:scale-105 transition-transform duration-500"
-          >
-            <IconHexagonLetterSFilled size={50} className="text-primaryColor" />
-            <span className="text-2xl font-extrabold font-montserrat text-transparent bg-clip-text bg-gradient-to-r from-primaryColor via-teal-300 to-pink-400">
-              Sagnik&apos;s Portfolio
-            </span>
-          </a>
-        </div>
-
-        {/* Navbar Links (Desktop) */}
-        <nav className="hidden xl:flex gap-8 absolute left-1/2 transform -translate-x-1/2">
-          {navLinks.map(({ label, href, icon }, index) => (
-            <a
-              key={index}
-              href={href}
-              className="flex items-center gap-2 text-textColor text-xl font-rubik font-semibold hover:text-primaryColor transition-transform duration-500 hover:scale-110"
+    <header className="fixed w-full top-0 z-50">
+      <motion.div
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        className="bg-gradient-to-r from-purple-900/90 via-indigo-900/90 to-purple-900/90 backdrop-blur-sm border-b border-white/10"
+      >
+        <nav className="container mx-auto px-6 py-4">
+          <div className="flex items-center justify-between">
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 text-transparent bg-clip-text"
             >
-              {icon}
-              {label}
-            </a>
-          ))}
+              Portfolio
+            </motion.div>
+            
+            <div className="hidden md:flex space-x-8">
+              {menuItems.map((item) => (
+                <motion.a
+                  key={item.href}
+                  href={item.href}
+                  whileHover={{ scale: 1.1 }}
+                  className="text-white hover:text-purple-300 transition-colors relative group"
+                >
+                  {item.label}
+                  <span className="absolute inset-x-0 -bottom-1 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 transform scale-x-0 group-hover:scale-x-100 transition-transform" />
+                </motion.a>
+              ))}
+            </div>
+
+            <div className="hidden md:flex items-center space-x-4">
+              {socialLinks.map((link) => (
+                <motion.a
+                  key={link.label}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.2, rotate: 5 }}
+                  className="text-white hover:text-purple-300 transition-colors"
+                >
+                  <link.icon size={20} />
+                </motion.a>
+              ))}
+            </div>
+
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="md:hidden text-white hover:text-purple-300 transition-colors"
+            >
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </nav>
 
-        {/* Hamburger Menu (Mobile) */}
-        <button
-          onClick={toggleMenu}
-          className="xl:hidden text-textColor text-2xl transition-transform duration-300"
-        >
-          {isMenuOpen ? <AiOutlineClose /> : <AiOutlineMenu />}
-        </button>
-      </div>
-
-      {/* Mobiles & Tablets Menu */}
-      {isMenuOpen && (
-        <nav className="absolute top-20 left-0 w-full bg-bgColor shadow-lg py-4 text-center xl:hidden">
-          {navLinks.map(({ label, href, icon }, index) => (
-            <a
-              key={index}
-              href={href}
-              onClick={toggleMenu}
-              className="flex items-center justify-center gap-2 text-white text-lg font-rubik font-semibold py-2 hover:text-primaryColor transition-all duration-500 hover:scale-110"
+        {/* Mobile Menu */}
+        <AnimatePresence>
+          {isMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              className="md:hidden border-t border-white/10"
             >
-              {icon}
-              {label}
-            </a>
-          ))}
-        </nav>
-      )}
+              <div className="container mx-auto px-6 py-4">
+                <div className="flex flex-col space-y-4">
+                  {menuItems.map((item) => (
+                    <a
+                      key={item.href}
+                      href={item.href}
+                      onClick={() => setIsMenuOpen(false)}
+                      className="text-white hover:text-purple-300 transition-colors"
+                    >
+                      {item.label}
+                    </a>
+                  ))}
+                  <div className="flex space-x-4 pt-4 border-t border-white/10">
+                    {socialLinks.map((link) => (
+                      <a
+                        key={link.label}
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-white hover:text-purple-300 transition-colors"
+                      >
+                        <link.icon size={20} />
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </motion.div>
     </header>
   );
 };
