@@ -1,7 +1,7 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { ExternalLink, Github } from 'lucide-react';
-import { Project } from '../types';
+import React from "react";
+import { motion } from "framer-motion";
+import { ExternalLink, Github, Video } from "lucide-react";
+import { Project } from "../types";
 
 interface ProjectCardProps {
   project: Project;
@@ -9,7 +9,11 @@ interface ProjectCardProps {
   index: number;
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ project, onOpenModal, index }) => {
+const ProjectCard: React.FC<ProjectCardProps> = ({
+  project,
+  onOpenModal,
+  index,
+}) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -18,19 +22,21 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onOpenModal, index }
       viewport={{ once: true }}
       className="group"
     >
-      <div 
+      <div
         onClick={() => onOpenModal(project)}
-        className="bg-gray-800/50 rounded-xl overflow-hidden cursor-pointer border border-purple-500/10 hover:border-purple-500/30 transition-all duration-300"
+        className="relative bg-gradient-to-br from-gray-800 via-gray-900 to-black rounded-xl overflow-hidden cursor-pointer border border-gray-700 hover:border-purple-500 shadow-lg hover:shadow-purple-500/40 transition-all duration-300"
       >
+        {/* Project Image */}
         <div className="relative overflow-hidden">
-          <motion.img 
+          <motion.img
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
-            src={project.image} 
-            alt={project.title} 
+            src={project.image}
+            alt={project.title}
             className="w-full h-48 object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center p-4">
+          {/* Action Buttons */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center p-4">
             <div className="flex gap-4 mb-4">
               <motion.a
                 whileHover={{ scale: 1.1 }}
@@ -38,10 +44,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onOpenModal, index }
                 href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 bg-purple-500/20 rounded-full backdrop-blur-sm hover:bg-purple-500/30 transition-colors"
+                className="p-2 bg-purple-500/20 rounded-full backdrop-blur-md hover:bg-purple-500/30 transition-colors"
                 onClick={(e) => e.stopPropagation()}
               >
-                <Github className="w-5 h-5 text-purple-300" />
+                <Github className="w-6 h-6 text-purple-300" />
               </motion.a>
               <motion.a
                 whileHover={{ scale: 1.1 }}
@@ -49,24 +55,50 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onOpenModal, index }
                 href={project.demo}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 bg-purple-500/20 rounded-full backdrop-blur-sm hover:bg-purple-500/30 transition-colors"
+                className="p-2 bg-blue-500/20 rounded-full backdrop-blur-md hover:bg-blue-500/30 transition-colors"
                 onClick={(e) => e.stopPropagation()}
               >
-                <ExternalLink className="w-5 h-5 text-purple-300" />
+                <ExternalLink className="w-6 h-6 text-blue-300" />
+              </motion.a>
+              <motion.a
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                href={project.video}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 bg-pink-500/20 rounded-full backdrop-blur-md hover:bg-pink-500/30 transition-colors"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <Video className="w-6 h-6 text-pink-300" />
               </motion.a>
             </div>
           </div>
         </div>
+
+        {/* Card Content */}
         <div className="p-6">
-          <h3 className="text-xl font-bold text-white mb-2 bg-gradient-to-r from-white to-purple-200 text-transparent bg-clip-text">
+          {/* Title */}
+          <h3 className="text-xl font-bold text-white mb-2 bg-gradient-to-r from-purple-400 to-pink-400 text-transparent bg-clip-text">
             {project.title}
+            {project.live && (
+              <span className="ml-2 text-red-400 text-xs bg-red-500/20 py-1 px-3 rounded-full animate-pulse inline-flex items-center gap-1">
+                Live{" "}
+                <span className="bg-red-400 w-2 h-2 rounded-full inline-block"></span>
+              </span>
+            )}
           </h3>
-          <p className="text-gray-400 mb-4 line-clamp-2">{project.description}</p>
+
+          {/* Description */}
+          <p className="text-gray-400 mb-4 line-clamp-2">
+            {project.description}
+          </p>
+
+          {/* Tags */}
           <div className="flex flex-wrap gap-2">
             {project.tags.map((tag, tagIndex) => (
-              <span 
-                key={tagIndex} 
-                className="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-sm"
+              <span
+                key={tagIndex}
+                className="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-sm hover:bg-purple-500/30 hover:shadow-md transition"
               >
                 {tag}
               </span>

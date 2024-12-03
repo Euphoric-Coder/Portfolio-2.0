@@ -6,7 +6,9 @@ export interface Project {
   tags: string[];
   github: string;
   demo: string;
+  video: string;
   date: string;
   role: string;
   features: string[];
+  live: boolean;
 }

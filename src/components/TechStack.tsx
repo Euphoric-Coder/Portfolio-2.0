@@ -1,105 +1,208 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import {
-  Blocks,
-  Database,
-  FileJson,
-  Globe,
-  Layout,
-  Trash,
-  Server,
-  Cpu,
-  Cloud,
-  Terminal,
-  Palette,
-  Code2,
-  Laptop,
-  Boxes
-} from 'lucide-react';
+import React from "react";
+import { motion } from "framer-motion";
 
 interface TechItem {
   name: string;
-  icon: React.ElementType;
-  category: string;
   color: string;
+  image: string;
+}
+
+interface Category {
+  name: string;
+  technologies: TechItem[];
 }
 
 const TechStack = () => {
-  const technologies: TechItem[] = [
-    // Frontend
-    { name: 'React', icon: Blocks, category: 'Frontend', color: 'from-cyan-500 to-blue-500' },
-    { name: 'TypeScript', icon: FileJson, category: 'Frontend', color: 'from-blue-500 to-indigo-500' },
-    { name: 'Next.js', icon: Layout, category: 'Frontend', color: 'from-gray-500 to-gray-700' },
-    { name: 'Tailwind CSS', icon: Palette, category: 'Frontend', color: 'from-teal-500 to-cyan-500' },
-    { name: 'Redux', icon: Boxes, category: 'Frontend', color: 'from-purple-500 to-indigo-500' },
-
-    // Backend
-    { name: 'Node.js', icon: Server, category: 'Backend', color: 'from-green-500 to-emerald-500' },
-    { name: 'Express.js', icon: Terminal, category: 'Backend', color: 'from-gray-600 to-gray-800' },
-    { name: 'GraphQL', icon: Code2, category: 'Backend', color: 'from-pink-500 to-rose-500' },
-    { name: 'REST APIs', icon: Globe, category: 'Backend', color: 'from-blue-500 to-violet-500' },
-
-    // Database
-    { name: 'MongoDB', icon: Database, category: 'Database', color: 'from-green-600 to-emerald-600' },
-    { name: 'PostgreSQL', icon: Database, category: 'Database', color: 'from-blue-600 to-indigo-600' },
-    { name: 'Redis', icon: Database, category: 'Database', color: 'from-red-500 to-rose-500' },
-
-    // DevOps & Tools
-    { name: 'Git', icon: Trash, category: 'Tools', color: 'from-orange-500 to-red-500' },
-    { name: 'Docker', icon: Cpu, category: 'Tools', color: 'from-blue-400 to-cyan-400' },
-    { name: 'AWS', icon: Cloud, category: 'Tools', color: 'from-yellow-500 to-orange-500' },
-    { name: 'VS Code', icon: Laptop, category: 'Tools', color: 'from-blue-500 to-indigo-500' }
+  const categories: Category[] = [
+    {
+      name: "Languages",
+      technologies: [
+        {
+          name: "C",
+          color: "from-cyan-500 to-blue-500",
+          image: "/images/c.png",
+        },
+        {
+          name: "C++",
+          color: "from-blue-500 to-indigo-500",
+          image: "/images/cpp.png",
+        },
+        {
+          name: "HTML",
+          color: "from-orange-500 to-red-500",
+          image: "/images/html.png",
+        },
+        {
+          name: "CSS",
+          color: "from-blue-500 to-purple-500",
+          image: "/images/css.png",
+        },
+        {
+          name: "JavaScript",
+          color: "from-yellow-500 to-orange-500",
+          image: "/images/javascript.png",
+        },
+        {
+          name: "TypeScript",
+          color: "from-blue-400 to-cyan-500",
+          image: "/images/typescript.png",
+        },
+        {
+          name: "Java",
+          color: "from-red-400 to-orange-400",
+          image: "/images/java.png",
+        },
+        {
+          name: "Python",
+          color: "from-blue-400 to-green-400",
+          image: "/images/python.png",
+        },
+      ],
+    },
+    {
+      name: "Technologies/Frameworks",
+      technologies: [
+        {
+          name: "React.js",
+          color: "from-blue-500 to-indigo-500",
+          image: "/images/react.png",
+        },
+        {
+          name: "Express.js",
+          color: "from-gray-500 to-gray-800",
+          image: "/images/express.png",
+        },
+        {
+          name: "Node.js",
+          color: "from-green-500 to-emerald-500",
+          image: "/images/nodejs.png",
+        },
+        {
+          name: "Tailwind CSS",
+          color: "from-teal-500 to-blue-500",
+          image: "/images/tailwind.png",
+        },
+        {
+          name: "Bootstrap",
+          color: "from-purple-500 to-pink-500",
+          image: "/images/bootstrap.png",
+        },
+        {
+          name: "Next.js",
+          color: "from-gray-500 to-gray-900",
+          image: "/images/nextjs.png",
+        },
+        {
+          name: "Vite",
+          color: "from-purple-500 to-blue-500",
+          image: "/images/vite.png",
+        },
+      ],
+    },
+    {
+      name: "Database",
+      technologies: [
+        {
+          name: "MongoDB",
+          color: "from-green-600 to-emerald-600",
+          image: "/images/mongodb.png",
+        },
+        {
+          name: "MySQL",
+          color: "from-blue-600 to-indigo-600",
+          image: "/images/mysql.png",
+        },
+        {
+          name: "SQLite",
+          color: "from-orange-500 to-red-500",
+          image: "/images/sqlite.png",
+        },
+        {
+          name: "PostgreSQL",
+          color: "from-blue-500 to-purple-500",
+          image: "/images/postgresql.png",
+        },
+      ],
+    },
+    {
+      name: "Deployment",
+      technologies: [
+        {
+          name: "Vercel",
+          color: "from-black to-gray-800",
+          image: "/images/vercel.png",
+        },
+        {
+          name: "Netlify",
+          color: "from-teal-500 to-blue-500",
+          image: "/images/netlify.png",
+        },
+        {
+          name: "Render",
+          color: "from-purple-500 to-pink-500",
+          image: "/images/render.png",
+        },
+      ],
+    },
   ];
 
-  const categories = Array.from(new Set(technologies.map(tech => tech.category)));
-
   return (
-    <div className="relative">
-      <div className="absolute inset-0 bg-gradient-to-r from-purple-900/20 via-pink-900/20 to-purple-900/20 blur-xl"></div>
-      <div className="relative bg-gray-900/50 backdrop-blur-sm rounded-2xl border border-white/10 p-8">
-        <h3 className="text-2xl font-semibold text-center mb-8 bg-gradient-to-r from-purple-400 to-pink-400 text-transparent bg-clip-text">
-          Tech Stack
+    <section className="relative py-20">
+      {/* Background Gradients */}
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/20 to-blue-900/20 blur-3xl"></div>
+
+      <div className="relative container mx-auto px-6">
+        {/* Title */}
+        <h3 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 text-transparent bg-clip-text">
+          My Tech Stack
         </h3>
 
-        <div className="space-y-8">
-          {categories.map((category, categoryIndex) => (
-            <div key={category} className="space-y-4">
-              <motion.h4
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ delay: categoryIndex * 0.1 }}
-                className="text-lg font-medium text-purple-300 mb-4"
-              >
-                {category}
-              </motion.h4>
-              
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-                {technologies
-                  .filter(tech => tech.category === category)
-                  .map((tech, index) => (
-                    <motion.div
-                      key={tech.name}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ delay: (categoryIndex * 0.1) + (index * 0.05) }}
-                      whileHover={{ scale: 1.05 }}
-                      className="relative group"
+        {/* Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-8">
+          {categories.map((category, index) => (
+            <motion.div
+              key={category.name}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{
+                delay: index * 0.1,
+                duration: 0.6,
+              }}
+              className="bg-gradient-to-br from-purple-900/50 to-blue-900/50 rounded-2xl shadow-lg p-8 border border-gray-800 hover:shadow-purple-500/50 transition-all"
+            >
+              {/* Category Title */}
+              <h4 className="text-2xl font-semibold text-purple-300 mb-6 text-center">
+                {category.name}
+              </h4>
+
+              {/* Technologies */}
+              <div className="grid grid-cols-2 gap-6">
+                {category.technologies.map((tech) => (
+                  <motion.div
+                    key={tech.name}
+                    whileHover={{ scale: 1.05 }}
+                    className="flex flex-col items-center bg-white/5 rounded-xl p-4 border border-gray-700 hover:border-purple-500/20 transition-all"
+                  >
+                    <div
+                      className={`w-16 h-16 flex items-center justify-center rounded-full bg-gradient-to-br ${tech.color}`}
                     >
-                      <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-xl blur-xl group-hover:blur-2xl transition-all duration-300 opacity-0 group-hover:opacity-100"></div>
-                      <div className="relative flex items-center gap-3 p-4 bg-white/5 rounded-xl border border-white/10 hover:border-purple-500/30 transition-colors duration-300">
-                        <div className={`p-2 rounded-lg bg-gradient-to-br ${tech.color}`}>
-                          <tech.icon className="w-5 h-5 text-white" />
-                        </div>
-                        <span className="text-gray-300 font-medium">{tech.name}</span>
-                      </div>
-                    </motion.div>
-                  ))}
+                      <img
+                        src={tech.image}
+                        alt={tech.name}
+                        className="w-12 h-12 object-contain"
+                      />
+                    </div>
+                    <span className="text-gray-300 text-center font-medium mt-2">
+                      {tech.name}
+                    </span>
+                  </motion.div>
+                ))}
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

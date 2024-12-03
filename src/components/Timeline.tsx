@@ -159,12 +159,13 @@ export const EducationTimeline = () => (
     <div className="absolute inset-0 bg-gradient-to-b from-purple-900/20 via-pink-900/20 to-purple-900/20 blur-3xl -z-10"></div>
     {[
       {
-        year: "2020 - 2024",
-        title: "Bachelor of Computer Science",
-        subtitle: "Tech University",
-        location: "New York, NY",
-        description: "Major in Software Engineering with focus on Web Technologies and Cloud Computing.",
+        year: "2023 - 2027",
+        title: "Bachelor's Degree in Computer Science",
+        subtitle: "Birla Inst. of Technology and Science, Pilani",
+        location: "Pilani, Rajasthan, IN",
+        description: "Have a Speacilisation in Full Stack Development.",
         achievements: [
+          "Obtained High Grade in 2nd Semester of 1st Year (9.79/10.0 CGPA)",
           "Dean's List for Academic Excellence (All Semesters)",
           "Led team project developing a cloud-based learning platform",
           "Published research paper on modern web development practices"
@@ -172,9 +173,9 @@ export const EducationTimeline = () => (
       },
       {
         year: "2018 - 2020",
-        title: "Associate Degree in Computer Science",
-        subtitle: "Community College",
-        location: "Boston, MA",
+        title: "Bachelor's Degree in Data Science & Application",
+        subtitle: "Indian Institute of Technology, Madras",
+        location: "Chennai, IN",
         description: "Foundation studies in programming and computer science principles.",
         achievements: [
           "Graduated with High Honors (3.9 GPA)",

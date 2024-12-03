@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Github, ExternalLink, Calendar, User } from 'lucide-react';
+import { X, Github, ExternalLink, Calendar, User, Video } from 'lucide-react';
 import { Project } from '../types';
 
 interface ProjectModalProps {
@@ -105,6 +105,17 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
               >
                 <ExternalLink className="w-4 h-4" />
                 Live Demo
+              </motion.a>
+              <motion.a
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                href={project.demo}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-4 py-2 bg-blue-500/20 rounded-full hover:bg-blue-500/30 transition-colors text-blue-300"
+              >
+                <Video className="w-4 h-4" />
+                Demo Video
               </motion.a>
             </div>
           </div>

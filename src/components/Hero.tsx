@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import Modal from "./Modal"; // Reusable Modal component
+import Modal from "./ResumeModal"; // Reusable Modal component
 
 const Hero = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -122,7 +122,6 @@ const Hero = () => {
           </motion.div>
         </div>
       </div>
-
       {/* Modal for Viewing PDF */}
       {isModalOpen && <Modal onClose={closeModal} />}
     </motion.section>
