@@ -125,10 +125,10 @@ export const ExperienceTimeline = () => (
     <div className="absolute inset-0 bg-gradient-to-b from-purple-900/20 via-pink-900/20 to-purple-900/20 blur-3xl -z-10"></div>
     {[
       {
-        year: "2023 - Present",
+        year: "Dec 2024 - Jun 2025",
         title: "Software Development Intern",
-        subtitle: "Tech Innovations Inc.",
-        location: "San Francisco, CA",
+        subtitle: "Rouge Internations & Rouge Ventures",
+        location: "Hong Kong, China",
         description: "Collaborated with senior developers on various web applications using modern JavaScript frameworks.",
         achievements: [
           "Developed and maintained responsive web applications using React and TypeScript",

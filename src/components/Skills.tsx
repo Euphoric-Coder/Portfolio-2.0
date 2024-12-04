@@ -1,16 +1,7 @@
-import React from "react";
 import { motion } from "framer-motion";
-import { Code, Database, Palette, Server } from "lucide-react";
+import { Code, Database, Server, Terminal } from "lucide-react";
 import TechStack from "./TechStack";
-
-interface SkillCategory {
-  title: string;
-  icon: React.ElementType;
-  skills: {
-    name: string;
-    expertise: string; // Changed from percentage to expertise level
-  }[];
-}
+import { SkillCategory } from "../types";
 
 const Skills = () => {
   const categories: SkillCategory[] = [
@@ -19,6 +10,7 @@ const Skills = () => {
       icon: Code,
       skills: [
         { name: "React.js", expertise: "Advanced" },
+        { name: "Next.js", expertise: "Advanced" },
         { name: "TypeScript", expertise: "Intermediate" },
         { name: "Tailwind CSS", expertise: "Advanced" },
       ],
@@ -39,6 +31,17 @@ const Skills = () => {
         { name: "MongoDB", expertise: "Advanced" },
         { name: "SQL", expertise: "Intermediate" },
         { name: "Firebase", expertise: "Intermediate" },
+        { name: "postgreSQL", expertise: "Intermediate" },
+      ],
+    },
+    {
+      title: "Area of Interest",
+      icon: Terminal,
+      skills: [
+        { name: "Full-Stack Web Development", expertise: "Primary" },
+        { name: "Front-End Development", expertise: "Primary" },
+        { name: "AI/ML Engineer", expertise: "" },
+        { name: "Data Scientist", expertise: "" },
       ],
     },
   ];
@@ -55,18 +58,18 @@ const Skills = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 text-transparent bg-clip-text"
+          className="text-4xl font-bold text-center mb-1 bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 text-transparent bg-clip-text"
         >
           Skills & Expertise
         </motion.h2>
 
         {/* TechStack Section */}
-        <div className="mb-10">
+        <div className="mb-1">
           <TechStack />
         </div>
 
         {/* Skill Categories */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {categories.map((category, index) => (
             <motion.div
               key={category.title}

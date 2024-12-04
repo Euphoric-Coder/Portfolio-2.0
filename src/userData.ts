@@ -6,9 +6,8 @@ export const projects: Project[] = [
     description:
       "A full-stack comprehensive Expense Tracker solution built using React & Next.js",
     longDescription:
-      "A comprehensive Expense Tracker solution built with React, Next.js, postgreSQL (using NeonDB), Tailwind CSS, Clerk, LangChain, Groq, Drizzle ORM, ShadCN UI, Recharts, and Charts.js. Features include real-time inventory management, secure payment processing, and an intuitive admin dashboard.",
-    image:
-      "https://images.unsplash.com/photo-1661956602116-aa6865609028?auto=format&fit=crop&w=600&h=400",
+      "A comprehensive Expense Tracker solution built with React, Next.js, postgreSQL (using NeonDB), Tailwind CSS, Clerk, LangChain, Groq, Drizzle ORM, ShadCN UI, Recharts, and Charts.js. Features include real-time inventory management, secure payment processing, and an intuitive admin dashboard. This is just a test for the following and it will be a test forever and going and going on and on and on and and and and and ",
+    image: "/projects/spendwise.png",
     tags: [
       "React",
       "Javascript",
@@ -23,8 +22,8 @@ export const projects: Project[] = [
       "Recharts",
       "Charts.js",
     ],
-    github: "https://github.com",
-    demo: "https://demo.com",
+    github: "https://github.com/Euphoric-Coder/SpendWise--Expense-Tracker",
+    demo: "https://spend-wise-expense-tracker.netlify.app/",
     video: "https://video.com",
     date: "2023",
     role: "Full Stack Developer",

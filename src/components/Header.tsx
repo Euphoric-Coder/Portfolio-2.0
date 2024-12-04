@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Github, Linkedin, Mail } from 'lucide-react';
+import { SiKaggle } from 'react-icons/si';
+import { FaUpwork } from 'react-icons/fa6';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,7 +17,9 @@ const Header = () => {
   const socialLinks = [
     { href: "https://github.com", icon: Github, label: "GitHub" },
     { href: "https://linkedin.com", icon: Linkedin, label: "LinkedIn" },
-    { href: "mailto:your.email@example.com", icon: Mail, label: "Email" }
+    { href: "mailto:deydsagnik48@example.com", icon: Mail, label: "Email" },
+    { href: "https://www.kaggle.com", icon: SiKaggle, label: "Kaggle" },
+    { href: "https://upwork.com", icon: FaUpwork, label: "Upwork" }
   ];
 
   return (
@@ -31,7 +35,7 @@ const Header = () => {
               whileHover={{ scale: 1.05 }}
               className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 text-transparent bg-clip-text"
             >
-              Portfolio
+              Sagnik&apos;s Portfolio
             </motion.div>
             
             <div className="hidden md:flex space-x-8">
@@ -40,10 +44,10 @@ const Header = () => {
                   key={item.href}
                   href={item.href}
                   whileHover={{ scale: 1.1 }}
-                  className="text-white hover:text-purple-300 transition-colors relative group"
+                  className="text-white hover:text-purple-300 hover:font-bold transition-all duration-300 relative group text-lg"
                 >
                   {item.label}
-                  <span className="absolute inset-x-0 -bottom-1 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 transform scale-x-0 group-hover:scale-x-100 transition-transform" />
+                  <span className="absolute inset-x-0 -bottom-1 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
                 </motion.a>
               ))}
             </div>
@@ -55,10 +59,10 @@ const Header = () => {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  whileHover={{ scale: 1.2, rotate: 5 }}
-                  className="text-white hover:text-purple-300 transition-colors"
+                  whileHover={{ scale: 1.5, rotate: 5 }}
+                  className="text-white hover:text-purple-300 transition-all duration-300"
                 >
-                  <link.icon size={20} />
+                  <link.icon size={30} />
                 </motion.a>
               ))}
             </div>
